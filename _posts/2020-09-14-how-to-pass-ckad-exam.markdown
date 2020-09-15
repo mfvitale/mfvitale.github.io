@@ -29,19 +29,18 @@ I have 10 suggestion for you:
     3. 7%
     
     So for each question that you think answered correctly put the percentage or leave it blank if you skipped. In this way you can easly see which question you skipped and also you can quickly sum to understood if you reached or not the passing score. During the exam you can access to a note application insede the browser and you can only use it. 
-
 7. **Don't waste time on long questions with low score** \
-   There are some question very long to read but with a low score (i.e 1% or 2%). I suggest to skip it if you are taking to long to read it. You can return on it at the end.
+   There are some question very long to read but with a low score (i.e 1% or 2%). I suggest to skip it if you are taking to long to read it. You can return on it at the end. 
 8. **VIM is default editor** \
-    Practice it or if you hate it as me you can run this command to use **nano** as default editor
-    {% highlight bash %}
-      export KUBECTL_EDITOR="nano"
-    {% endhighlight %}
+	Practice it or if you hate it as me you can run this command to use **nano** as default editor.
+	```bash
+	export KUBECTL_EDITOR="nano"
+	```
 9. **Define alias for kubectl** \
-    The secret is to be fast and you should avoid to waste time typing so create an alias for kubectl
-    {% highlight bash %}
-    alias kk=kubectl
-    {% endhighlight %}
+    The secret is to be fast and you should avoid to waste time typing so create an alias for kubectl.
+	```bash
+	alias kk=kubectl
+	```
 10. **Remember you can have another chance** \
     If all this rule not helped you, remember that you have another chance to re-take the exams for free. 
     
