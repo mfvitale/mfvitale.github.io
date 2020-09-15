@@ -32,6 +32,7 @@ github_username:  jekyll
 remote_theme: sharadcodes/geekyll-starter-blog
 plugins:
   - jekyll-feed
+  - jemoji
 
 # Exclude from processing.
 # The following items will not be processed, by default.
