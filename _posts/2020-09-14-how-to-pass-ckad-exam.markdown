@@ -13,7 +13,7 @@ If you are thinking about the [CKAD](https://www.cncf.io/certification/ckad/) (C
 I have 10 suggestion for you:
 
 1. **Take an online course** \
-    I truly recommend to invest in this course beacuse gives you knwolodges on both theory and practice. There are a lot of excersice to do in an environment very similar to the one used for the CKAD exam. https://www.udemy.com/certified-kubernetes-application-developer/
+    I truly recommend to invest in [this course](https://www.udemy.com/certified-kubernetes-application-developer/) beacuse gives you knwolodges on both theory and practice. There are a lot of excersice to do in an environment very similar to the one used for the CKAD exam.
 2. **Pratice a lot** \
     You can also do some practice using [Katacoda](https://www.katacoda.com/). Also here the environment is much similar to the CKAD one.
 3. **Pratice a lot** \
