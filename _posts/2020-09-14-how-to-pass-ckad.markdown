@@ -6,7 +6,7 @@ categories: blog
 ---
 In the last years Kubernates is becoming more and more present in everyday (programmers) life, so I think it's important to learn it and why not, to take a certification!
 
-If you are thinking about the CKAD (Certified Kubernates Application Developer) take in mind that this is a pratical certification. As decribed on CNCF site 
+If you are thinking about the [CKAD](https://www.cncf.io/certification/ckad/) (Certified Kubernates Application Developer) take in mind that this is a pratical certification. As decribed on CNCF site 
 
 > The online, proctored, performance-based test consists of a set of performance-based items (problems) to be solved in a command line and is expected to take approximately two > (2) hours to complete.
 
