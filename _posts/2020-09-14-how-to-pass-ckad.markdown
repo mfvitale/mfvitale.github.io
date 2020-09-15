@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to pass CKAD"
+title:  "How to pass CKAD exam"
 date:   2020-09-14 18:42:38 +0200
 categories: blog
 ---
