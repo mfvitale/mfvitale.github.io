@@ -8,11 +8,7 @@
         {% for post in site.posts %}
         <div class="post">
           <a href="{{site.baseurl}}{{post.url}}"><h3>{{post.title}}</h3></a>
-<<<<<<< HEAD
           <small>{{post.date|date_to_string}} · {% include reading-time.html %}</small>
-=======
-          <!--small>{{post.date|date_to_string}} · {{ post.content | reading_time | pluralize: "minute" }} to read</small-->
->>>>>>> 93a95b00906d90f377e07a10de796cfc34d78244
           <p>
             {{post.content|truncate: 120}}
           </p>
