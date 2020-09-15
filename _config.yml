@@ -28,11 +28,20 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+author:
+  image: assets/img/me.jpg
+  name: Mario
+  bio: >- 
+    I am a Software developer born in the shadow of Vesuvio. Currently in Milan. 
+    Amatuer photographer and Ferrari fan!
+
 # Buid settings
 remote_theme: sharadcodes/geekyll-starter-blog
 plugins:
   - jekyll-feed
   - jemoji
+  - liquid_reading_time
+  - liquid_pluralize
 
 # Exclude from processing.
 # The following items will not be processed, by default.
