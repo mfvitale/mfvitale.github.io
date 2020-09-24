@@ -9,3 +9,4 @@ categories: blog
 # Jekyll
 # Install on Windows
 # Themes
+# Limitations
