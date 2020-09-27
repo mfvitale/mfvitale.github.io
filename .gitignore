@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
 Gemfile.lock
-=======
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
->>>>>>> Add GitHub and Jekyll intro
