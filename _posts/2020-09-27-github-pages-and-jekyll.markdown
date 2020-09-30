@@ -73,11 +73,23 @@ cd myblog
 bundle exec jekyll serve
 ```
 4. Browse to http://localhost:4000
-### Site structure
-describe the structures and how to map url to paths
+
+At this point I suggest to read about [Pages](https://jekyllrb.com/docs/pages/) and [Posts](https://jekyllrb.com/docs/posts/) to understand how to organize your site. 
 ### Themes
-* github default themes
-* remote themes
-* theme overriding
+The entry point for every configuration is the **_config.yml** file also for themes. You have two options to change the theme:
+1. Use one of [GitHub default theme](https://pages.github.com/themes/)
+In that case you need to change 
+``` yaml
+theme: THEME-NAME
+```
+replacing **THEME-NAME** with the name of the theme as shown in the README of the theme's repository.
+1. Use a *remote theme*
+Remote themes are theme hosted on Github. In that case you need to change
+``` yaml
+remote_theme: THEME-NAME
+```
+replacing **THEME-NAME** with the name of the theme as shown in the README of the theme's repository.
+#### theme overriding
 ## Limitations
-You can not use all plugins but the only github compatibles
+There are some limitations when using Jekyll on GitHub pages and one is that you cannot use all the plugin that you want but only some that are approved by GitHub.
+[Here](https://pages.github.com/versions/) you can find the list. Since GitHub Pages cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to GitHub.
