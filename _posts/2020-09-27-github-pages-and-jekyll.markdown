@@ -36,7 +36,7 @@ If you want more power use [Jekyll](https://jekyllrb.com/)!
 [![Simplicity = Love by bemorewithless](https://bemorewithless.com/wp-content/uploads/2015/10/simplicity.jpg "Simplicity = Love by bemorewithless")](https://bemorewithless.com/lovequotes/)
 
 I think there is nothing to add here. 
-# Install on Windows
+## Install on Windows
 Yes, yes..I am using Windows. Why not? Expecially in the last years is not so bad. I wrote an [article](https://www.linkedin.com/pulse/chocolatey-cmder-how-feel-less-lack-shell-windows-mario-fiore-vitale/) and maybe I will wrote another in this blog. 
 
 A part from that, you can install Jekyll on Windows in two main way:
@@ -59,7 +59,7 @@ source ~/.bashrc
 ``` bash
 gem install jekyll bundler
 ```
-### How to create a site
+## How to create a site
 1. Create a new Jekyll site at ./myblog.
 ``` bash
 jekyll new myblog
@@ -73,9 +73,11 @@ cd myblog
 bundle exec jekyll serve
 ```
 4. Browse to http://localhost:4000
-# Themes
+### Site structure
+describe the structures and how to map url to paths
+### Themes
 * github default themes
 * remote themes
 * theme overriding
-# Limitations
+## Limitations
 You can not use all plugins but the only github compatibles
