@@ -89,6 +89,13 @@ Remote themes are theme hosted on Github. In that case you need to change
 remote_theme: THEME-NAME
 ```
 replacing **THEME-NAME** with the name of the theme as shown in the README of the theme's repository.
+To run remote themes on your local machine you need to enable it on Gemfile adding 
+``` gem
+group :jekyll_plugins do
+  ...
+  gem "jekyll-remote-theme"
+  ...
+```
 #### theme overriding
 ## Limitations
 There are some limitations when using Jekyll on GitHub pages and one is that you cannot use all the plugin that you want but only some that are approved by GitHub.
