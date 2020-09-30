@@ -96,7 +96,11 @@ group :jekyll_plugins do
   gem "jekyll-remote-theme"
   ...
 ```
-#### theme overriding
+#### Theme overriding
+You can customize a theme simple overring it's files.
+Usually a theme places it's files in this directories: *assets*, *_layouts*, *_includes*, and *_sass*.
+So for example if your theme has a layout called *home.html" to override it you must create, in your site home directory, the folder *_layouts* and put the *home.html" files. You can copy the orignal one and modify it or you can simple create one from scratch, but the name must match.
+This is valid also for the files in other directories.
 ## Limitations
 There are some limitations when using Jekyll on GitHub pages and one is that you cannot use all the plugin that you want but only some that are approved by GitHub.
-[Here](https://pages.github.com/versions/) you can find the list. Since GitHub Pages cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to GitHub.
+[Here](https://pages.github.com/versions/) you can find the list. If you want to use unsupported plugins, generate your site locally and then push your site's static files to GitHub.
