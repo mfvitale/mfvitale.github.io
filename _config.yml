@@ -39,6 +39,8 @@ remote_theme: sharadcodes/geekyll-starter-blog
 plugins:
   - jekyll-feed
   - jemoji
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.
