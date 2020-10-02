@@ -4,7 +4,7 @@ title:  "Are you testing your tests?"
 date:   2020-10-06 16:42:38 +0200
 categories: blog
 ---
-How many of you haerd at least one time in their career this sentence: "**We must have a code coverage >= 80% for release to production**"?
+How many of you heard at least one time in their career this sentence: "**We must have a code coverage >= 80% for release to production**"?
 
 <p align="center">
 <img src="https://memegenerator.net/img/instances/54739072.jpg" alt="Code coverage is coming" width="50%"/>
