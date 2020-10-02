@@ -19,4 +19,7 @@ I think that sometime (lot of times) this "number" is used only as a goal but it
 * High coverage :relaxed:
 * Low coverage :fearful:
 
+But how I can say that my code has a good quality? Certainly doing tests and so having a good coverage but..this is not sufficient. Who tests the quality of your test?!
+
+This is where *mutation tests* come in handy.
 
