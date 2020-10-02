@@ -24,6 +24,10 @@ So how I can say that my code has a good quality? Certainly doing tests and so h
 This is where *mutation tests* come in handy.
 
 ## What is mutation testing?
+<p align="center">
+<img src="https://media.nature.com/lw800/magazine-assets/d41586-019-03536-x/d41586-019-03536-x_17373716.jpg" alt="Mutation" width="50%"/>
+</p>
+
 Mutation tests are new type of software testing with the aim to test the quality of your test! They works changing some code and see if there are some tests that fails.
 I see in this type of tests an analogy with [chaos enginering](https://principlesofchaos.org/) 
 
@@ -38,6 +42,9 @@ Very simple!
 ### Coverage vs Mutation
 
 ### PIT, Java mutation tests library
+
+#### Example
+show an example and the report
 
 
 Link to repo
