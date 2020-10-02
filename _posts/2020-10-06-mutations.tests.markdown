@@ -10,7 +10,9 @@ How many of you heard at least one time in their career this sentence: "**We mus
 <img src="https://memegenerator.net/img/instances/54739072.jpg" alt="Code coverage is coming" width="50%"/>
 </p>
 
-I totally agree with this sentence
+:raised_hand::raised_hand::raised_hand:
+
+But I totally agree with the following sentence
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Code coverage is a side effect, not a goal. The only time I find the metric useful is when I’m working with legacy and want to have an indication if there are tests for the part of the code I’m interested in.</p>&mdash; Sandro Mancuso (@sandromancuso) <a href="https://twitter.com/sandromancuso/status/1091701221390516224?ref_src=twsrc%5Etfw">February 2, 2019</a></blockquote>
 
