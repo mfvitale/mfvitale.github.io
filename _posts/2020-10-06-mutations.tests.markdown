@@ -19,7 +19,27 @@ I think that sometime (lot of times) this "number" is used only as a goal but it
 * High coverage :relaxed:
 * Low coverage :fearful:
 
-But how I can say that my code has a good quality? Certainly doing tests and so having a good coverage but..this is not sufficient. Who tests the quality of your test?!
+So how I can say that my code has a good quality? Certainly doing tests and so having a good coverage but..this is not sufficient. Who tests the quality of your test?!
 
 This is where *mutation tests* come in handy.
 
+## What is mutation testing?
+Mutation tests are new type of software testing with the aim to test the quality of your test! They works changing some code and see if there are some tests that fails.
+I see in this type of tests an analogy with [chaos enginering](https://principlesofchaos.org/) 
+
+> Chaos engineering is the discipline of experimenting on a software system in production in order to build confidence in the system's capability to withstand turbulent and unexpected conditions.
+
+### Basic concept
+Mutation is a change automatically seeded into your code that can be *killed* if your tests fails, or **lived** if your tests pass!
+The quality of your tests can be gauged from the percentage of mutations killed.
+
+Very simple!
+
+### Coverage vs Mutation
+
+### PIT, Java mutation tests library
+
+
+Link to repo
+
+If you put togher high code coverage and a good resilience to mutation test you have a great measure of your code quality!
