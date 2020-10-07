@@ -12,7 +12,7 @@ How many of you heard at least one time in their career this sentence: "**We mus
 
 :raised_hand::raised_hand::raised_hand:
 
-But I totally agree with the following sentence
+As for all absolute measurement you should pay attention and treat it carefully. That's why I totally agree with the following sentence
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Code coverage is a side effect, not a goal. The only time I find the metric useful is when I’m working with legacy and want to have an indication if there are tests for the part of the code I’m interested in.</p>&mdash; Sandro Mancuso (@sandromancuso) <a href="https://twitter.com/sandromancuso/status/1091701221390516224?ref_src=twsrc%5Etfw">February 2, 2019</a></blockquote>
 
@@ -36,13 +36,13 @@ I see in this type of tests an analogy with [chaos enginering](https://principle
 > Chaos engineering is the discipline of experimenting on a software system in production in order to build confidence in the system's capability to withstand turbulent and unexpected conditions.
 
 ### Basic concept
-Mutation is a change automatically seeded into your code that can be *killed* if your tests fails, or **lived** if your tests pass!
+Mutation is a change automatically seeded into your code that can be **killed** if your tests fails, or **lived** if your tests pass!
 The quality of your tests can be gauged from the percentage of mutations killed.
 
 Very simple!
 
 ### Coverage vs Mutation
-For example the following code is an implementation of to check if a string is palindrome.
+For example the following code is an implementation to check if a string is palindrome.
 
 ``` java
 public class Palindrome {
@@ -59,7 +59,7 @@ public class Palindrome {
     }
 }
 ```
-and this is the tests 
+and this is the tests that
 
 ``` java
 public class PalindromeTest {
@@ -90,7 +90,7 @@ let's now analyze the red lines: 6, 12 so *SURVIVED* mutations:
 
 **6\.** in case we negate the condition on *lenght*, returning true when lenght is not 0, our test will pass so the change *SURVIVED*. Not good!
 
-> *Solution* add a test with and empty string and aspect isPalindrome return true.
+> *Solution* add a test with and empty string and expect isPalindrome return true.
 
 **12.1** in that case if the *return* statement in the else will always return true, our test will pass an so the change *SURVIVED*.
 
@@ -125,9 +125,9 @@ Note that the last test on "neon" is required to also kill mutation on the secon
 ![PIT report 100%]({{site.baseurl}}/assets/img/mutation-tests/pit-report-good.png)
 
 ### PIT, Java mutation tests library
-To calculate the mutation coverage is used [PIT](https://pitest.org/) library. It' very simple to use:
+Thre are different libraries to enable mutation testing but I think that for the Java world the best is [PIT](https://pitest.org/). It' very simple to use:
 
-add
+First of all add
 ``` pom
 <plugin>
     <groupId>org.pitest</groupId>
@@ -136,7 +136,7 @@ add
  </plugin>
 ```
 
-to your pom.xml. If you are using Junit5 you need to add these dependency to plugin
+to your pom.xml and, if you are using Junit5, you need to add these dependency to plugin
 ``` pom
 <dependencies>
     <dependency>
@@ -154,17 +154,17 @@ remember to add also surfire plugin to execute test with maven
     <version>3.0.0-M5</version>
 </plugin>
 ```
-You can now run:
+Now, you can run:
 ``` bash
 mvn test
 ```
 ``` bash
 mvn pitest:mutationCoverage 
 ```
-you can find the report in 'target/pit-reports'
+after the execution finish you can find the report in 'target/pit-reports'
 
 
 You can find the project example [here](https://github.com/mfvitale/mutation-tests-example)
 
 ### Conclusion
-If you put togher high code coverage and a good resilience to mutation test you have a great measure of your code quality!
+What we have seen is that code coverage alone is not a good indicator of quality, we need also something to test the quality of out tests. If you put together high code coverage and mutation coverage you can have a great measure of your code quality!
