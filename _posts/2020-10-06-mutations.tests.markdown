@@ -42,13 +42,129 @@ The quality of your tests can be gauged from the percentage of mutations killed.
 Very simple!
 
 ### Coverage vs Mutation
+For example the following code is an implementation of to check if a string is palindrome.
+
+``` java
+public class Palindrome {
+
+    public boolean isPalindrome(String inputString) {
+        if (inputString.length() == 0) {
+            return true;
+        } else {
+            char firstChar = inputString.charAt(0);
+            char lastChar = inputString.charAt(inputString.length() - 1);
+            String mid = inputString.substring(1, inputString.length() - 1);
+            return (firstChar == lastChar) && isPalindrome(mid);
+        }
+    }
+}
+```
+and this is the tests 
+
+``` java
+public class PalindromeTest {
+
+    @Test
+    @DisplayName("Passing noon to isPalindrome must return true")
+    public void when_pal() {
+        Palindrome fb = new Palindrome();
+        assertTrue(fb.isPalindrome("noon"));
+    }
+}
+```
+
+has a code coverage of **100%** but mutation coverage is instead of **57%**.
+![coverage]({{site.baseurl}}/assets/img/mutation-tests/coverage.png)
+ in details 
+ ![PIT report]({{site.baseurl}}/assets/img/mutation-tests/pit-report.png)
+
+Let's analyze the result starting from the *green* lines: 7, 10, 11 and 12 so *KILLED* mutations:
+
+**7\.** in case we change the *return true* to *return false* when the *lenght* is 0, our test obviously fails so mutation is catched and killed!
+
+**10 and 11.** in that case adding 1 instead to substract it will cause an *ArreyOutOfBoundException* and our test will fails. Even in that case we killed the mutation.
+
+**12.2** in that case the first condition of the *return* statement is negated and our test will fail. Mutation killed!
+
+let's now analyze the red lines: 6, 12 so *SURVIVED* mutations:
+
+**6\.** in case we negate the condition on *lenght*, returning true when lenght is not 0, our test will pass so the change *SURVIVED*. Not good!
+
+> *Solution* add a test with and empty string and aspect isPalindrome return true.
+
+**12.1** in that case if the *return* statement in the else will always return true, our test will pass an so the change *SURVIVED*.
+
+**12.3** in that case we are nagatin the '&&' condition of the *return* statement, so we are considering only the first and the last char to say if a string is palindrome or not. Our test will pass and so the change *SURVIVED* 
+
+> *Solution* for 12.* add a test to verify also when a string (with lenght > 2) is not palindrome.
+
+``` java
+@Test
+@DisplayName("Passing empty string to isPalindrome must return true")
+public void when_empty_pal() {
+    Palindrome fb = new Palindrome();
+    assertTrue(fb.isPalindrome(""));
+}
+
+@Test
+@DisplayName("Passing mario string to isPalindrome must return false")
+public void when_not_pal() {
+    Palindrome fb = new Palindrome();
+    assertFalse(fb.isPalindrome("mario"));
+}
+
+@Test
+@DisplayName("Passing neon string to isPalindrome must return false")
+public void whenNearPalindrom_thanReject(){
+    Palindrome palindromeTester = new Palindrome();
+    assertFalse(palindromeTester.isPalindrome("neon"));
+}
+```
+Note that the last test on "neon" is required to also kill mutation on the second part of the return condition. In that case we will have **100%** mutation coverage.
+
+![PIT report 100%]({{site.baseurl}}/assets/img/mutation-tests/pit-report-good.png)
 
 ### PIT, Java mutation tests library
+To calculate the mutation coverage is used [PIT](https://pitest.org/) library. It' very simple to use:
 
-#### Example
-show an example and the report
+add
+``` pom
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>LATEST</version>
+ </plugin>
+```
+
+to your pom.xml. If you are using Junit5 you need to add these dependency to plugin
+``` pom
+<dependencies>
+    <dependency>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-junit5-plugin</artifactId>
+        <version>0.12</version>
+    </dependency>
+</dependencies>
+```
+remember to add also surfire plugin to execute test with maven
+``` pom
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M5</version>
+</plugin>
+```
+You can now run:
+``` bash
+mvn test
+```
+``` bash
+mvn pitest:mutationCoverage 
+```
+you can find the report in 'target/pit-reports'
 
 
-Link to repo
+You can find the project example [here](https://github.com/mfvitale/mutation-tests-example)
 
+### Conclusion
 If you put togher high code coverage and a good resilience to mutation test you have a great measure of your code quality!
