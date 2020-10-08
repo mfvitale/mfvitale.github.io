@@ -167,4 +167,4 @@ after the execution finish you can find the report in 'target/pit-reports'
 You can find the project example [here](https://github.com/mfvitale/mutation-tests-example)
 
 ### Conclusion
-What we have seen is that code coverage alone is not a good indicator of quality, we need also something to test the quality of out tests. If you put together high code coverage and mutation coverage you can have a great measure of your code quality!
+What we have seen is that code coverage alone is not a good indicator of quality, we need also something to test the quality of our tests. If you put together high code coverage and mutation coverage you can have a great measure of your code quality!
