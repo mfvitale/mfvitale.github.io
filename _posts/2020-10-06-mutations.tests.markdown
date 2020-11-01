@@ -12,16 +12,16 @@ How many of you heard at least one time in their career this sentence: "**We mus
 
 :raised_hand::raised_hand::raised_hand:
 
-As for all absolute measurement you should pay attention and treat it carefully. That's why I totally agree with the following sentence
+As for all absolute measurement, you should pay attention and treat it carefully. That's why I agree with the following sentence
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Code coverage is a side effect, not a goal. The only time I find the metric useful is when I’m working with legacy and want to have an indication if there are tests for the part of the code I’m interested in.</p>&mdash; Sandro Mancuso (@sandromancuso) <a href="https://twitter.com/sandromancuso/status/1091701221390516224?ref_src=twsrc%5Etfw">February 2, 2019</a></blockquote>
 
-I think that sometime (lot of times) this "number" is used only as a goal but it should be a "tool" for developers to understand the fragility of the code that they are going to change. 
+I think that sometimes (lot of times) this "number" is used only as a goal but it should be a "tool" for developers to understand the fragility of the code that they are going to change. 
 
 * High coverage :relaxed:
 * Low coverage :fearful:
 
-So how I can say that my code has a good quality? Certainly doing tests and so having a good coverage but..this is not sufficient. Who tests the quality of your test?!
+So how I can say that my code has a good quality? Certainly doing tests and so having good coverage but..this is not sufficient. Who tests the quality of your test?!
 
 This is where *mutation tests* come in handy.
 
@@ -30,19 +30,19 @@ This is where *mutation tests* come in handy.
 <img src="https://media.nature.com/lw800/magazine-assets/d41586-019-03536-x/d41586-019-03536-x_17373716.jpg" alt="Mutation" width="50%"/>
 </p>
 
-Mutation tests are new type of software testing with the aim to test the quality of your test! They works changing some code and see if there are some tests that fails.
+Mutation tests are a new type of software testing to test the quality of your test! They work changing some code and see if some tests fail.
 I see in this type of tests an analogy with [chaos enginering](https://principlesofchaos.org/) 
 
 > Chaos engineering is the discipline of experimenting on a software system in production in order to build confidence in the system's capability to withstand turbulent and unexpected conditions.
 
 ### Basic concept
-Mutation is a change automatically seeded into your code that can be **killed** if your tests fails, or **lived** if your tests pass!
+A mutation is a change automatically seeded into your code that can be **killed** if your tests fail, or **lived** if your tests pass!
 The quality of your tests can be gauged from the percentage of mutations killed.
 
 Very simple!
 
 ### Coverage vs Mutation
-For example the following code is an implementation to check if a string is palindrome.
+For example, the following code is an implementation to check if a string is a palindrome.
 
 ``` java
 public class Palindrome {
@@ -78,25 +78,25 @@ has a code coverage of **100%** but mutation coverage is instead of **57%**.
  in details 
  ![PIT report]({{site.baseurl}}/assets/img/mutation-tests/pit-report.png)
 
-Let's analyze the result starting from the *green* lines: 7, 10, 11 and 12 so *KILLED* mutations:
+Let's analyze the result starting from the *green* lines: 7, 10, 11, and 12 so *KILLED* mutations:
 
-**7\.** in case we change the *return true* to *return false* when the *lenght* is 0, our test obviously fails so mutation is catched and killed!
+**7\.** in case we change the *return true* to *return false* when the *length* is 0, our test obviously fails so mutation is caught and killed!
 
-**10 and 11.** in that case adding 1 instead to substract it will cause an *ArreyOutOfBoundException* and our test will fails. Even in that case we killed the mutation.
+**10 and 11.** in that case adding 1 instead to subtract it will cause an *ArreyOutOfBoundException* and our test will fail. Even in that case, we killed the mutation.
 
 **12.2** in that case the first condition of the *return* statement is negated and our test will fail. Mutation killed!
 
 let's now analyze the red lines: 6, 12 so *SURVIVED* mutations:
 
-**6\.** in case we negate the condition on *lenght*, returning true when lenght is not 0, our test will pass so the change *SURVIVED*. Not good!
+**6\.** in case we negate the condition on *length*, returning true when length is not 0, our test will pass so the change *SURVIVED*. Not good!
 
-> *Solution* add a test with and empty string and expect isPalindrome return true.
+> *Solution* add a test with an empty string and expect isPalindrome return true.
 
 **12.1** in that case if the *return* statement in the else will always return true, our test will pass an so the change *SURVIVED*.
 
-**12.3** in that case we are nagatin the '&&' condition of the *return* statement, so we are considering only the first and the last char to say if a string is palindrome or not. Our test will pass and so the change *SURVIVED* 
+**12.3** in that case we are denying the '&&' condition of the *return* statement, so we are considering only the first and the last char to say if a string is a palindrome or not. Our test will pass and so the change *SURVIVED* 
 
-> *Solution* for 12.* add a test to verify also when a string (with lenght > 2) is not palindrome.
+> *Solution* for 12.* add a test to verify also when a string (with length > 2) is not a palindrome.
 
 ``` java
 @Test
@@ -120,12 +120,12 @@ public void whenNearPalindrom_thanReject(){
     assertFalse(palindromeTester.isPalindrome("neon"));
 }
 ```
-Note that the last test on "neon" is required to also kill mutation on the second part of the return condition. In that case we will have **100%** mutation coverage.
+Note that the last test on "neon" is required to also kill mutation in the second part of the return condition. In that case, we will have **100%** mutation coverage.
 
 ![PIT report 100%]({{site.baseurl}}/assets/img/mutation-tests/pit-report-good.png)
 
 ### PIT, Java mutation tests library
-Thre are different libraries to enable mutation testing but I think that for the Java world the best is [PIT](https://pitest.org/). It' very simple to use:
+There are different libraries to enable mutation testing but I think that for the Java world the best is [PIT](https://pitest.org/). It' very simple to use:
 
 First of all add
 ``` pom
@@ -161,7 +161,7 @@ mvn test
 ``` bash
 mvn pitest:mutationCoverage 
 ```
-after the execution finish you can find the report in 'target/pit-reports'
+after the execution finish, you can find the report in 'target/pit-reports'
 
 
 You can find the project example [here](https://github.com/mfvitale/mutation-tests-example)
