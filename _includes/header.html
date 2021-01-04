@@ -1,4 +1,11 @@
 <header>
+    <section class="nav">
+      <ul>
+        {% for item in site.data.menu.pages %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
     <a href="{{site.baseurl}}/">
       <h1>
         {{site.title}}
