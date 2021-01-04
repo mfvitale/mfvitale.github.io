@@ -2,18 +2,20 @@
 layout: page
 title: About
 permalink: /about/
-sitemap: false
+sitemap: true
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hello! I'm Mario, a software engineer with 8 years of experience.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I have worked for consultancy, startup, and enterprise product companies in different sectors. 
+I am mainly a back-end developer but I had some experience working on the frot-end. 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I am a very curious person and I like to keep growing my skills. I care about code quality and readability.
 
+> Any fool can write code that a computer can understand. Good programmers write code that humans can understand. 
+>
+>Martin Fowler, 2008.
 
-[jekyll-organization]: https://github.com/jekyll
+I believe in tests as a tool to increase quality and reduce fear to evolve code.
+
+I care about developers day by day life and I believe that automation comes in handy to reduce repetitive tasks and focus on what is important: features.
