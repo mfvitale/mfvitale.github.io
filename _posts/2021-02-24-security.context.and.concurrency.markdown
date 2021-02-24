@@ -70,7 +70,7 @@ Why is this the default?
 
 <blockquote>MODE_THREADLOCAL, which is backwards compatible, has fewer JVM incompatibilities and is appropriate on servers (whereas MODE_GLOBAL is definitely inappropriate for server use).</blockquote>
 
-https://docs.spring.io/spring-security/site/docs/4.2.20.RELEASE/apidocs/org/springframework/security/core/context/SecurityContextHolder.html
+This is extracted from [spring docs](https://docs.spring.io/spring-security/site/docs/4.2.20.RELEASE/apidocs/org/springframework/security/core/context/SecurityContextHolder.html)
 
 ### Inheritable thread local
 
