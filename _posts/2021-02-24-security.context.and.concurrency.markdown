@@ -233,3 +233,5 @@ Now all the tests will pass!
 
 ## Conclusion
 We have seen how to configure and use SecurityContextHolder for our scope. I hope the article clarify better the *why* and *how* these things work. I used Spring and *SecurityContextHolder* but this approach can be used in general when you need to store context information in your application in a multi-thread environment. 
+
+Check the [repo](https://github.com/mfvitale/security-context) for full project.
