@@ -21,3 +21,61 @@ As you know 'ThreadLocal' means exactly what the name say: it's a variable local
 put code from SecurityContextDefaultStrategy 
 ```
 
+Look at the second test, we are getting the authentication context from a new Thread and this will *FAIL*. Why?
+The Spring SecurityContextHolder has different strategies to "store" context:
+
+* MODE_GLOBAL 
+* MODE_INHERITABLETHREADLOCAL 
+* MODE_THREADLOCAL
+
+Since the default is *MODE_THREADLOCAL* the test is expected to fail because the context is *local* to the main thread. 
+Why is this the default? 
+
+<blockquote>MODE_THREADLOCAL, which is backwards compatible, has fewer JVM incompatibilities and is appropriate on servers (whereas MODE_GLOBAL is definitely inappropriate for server use).</blockquote>
+
+https://docs.spring.io/spring-security/site/docs/4.2.20.RELEASE/apidocs/org/springframework/security/core/context/SecurityContextHolder.html
+
+### Inheritable thread local
+
+We can solve the problem of missing context when creating new threads setting the SecurityContextHolder strategy to *MODE_INHERITABLETHREADLOCAL*
+
+``` java
+SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+```
+
+this can also be done setting the property 
+``` properties
+spring.security.strategy=MODE_INHERITABLETHREADLOCAL
+```
+
+Let's see the test
+``` java
+put code from SecurityContextInheritableStrategy 
+```
+ 
+Now the first two tests will pass but not the third one...:(
+
+Uhmm we are using InheritableThreadLocal this means that the context will be copied to new thread from the main thread but in our third tests we are using a thread pool..so a thread is created once ( in this moment the context will be inherited from the main thread) but then will be reused! You got the point?
+
+We need something to copy the context before each execution. Spring has the concept of [*DelegatingSecurityContext**](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/concurrency.html) that do the work for us. 
+
+* DelegatingSecurityContextCallable
+* DelegatingSecurityContextExecutor
+* DelegatingSecurityContextExecutorService
+* DelegatingSecurityContextRunnable
+* DelegatingSecurityContextScheduledExecutorService
+* DelegatingSecurityContextSchedulingTaskExecutor
+* DelegatingSecurityContextAsyncTaskExecutor
+* DelegatingSecurityContextTaskExecutor
+
+In this case we need the *DelegatingSecurityContextExecutorService* that wraps our *ExecutorService*
+
+``` java
+ExecutorService originalExecutor = Executors.newSingleThreadExecutor();
+DelegatingSecurityContextExecutorService executor = new DelegatingSecurityContextExecutorService(originalExecutor);
+```
+
+Now all the tests will pass!
+
+## Conclusion
+We have seen how to configure and use SecurityContextHolder for our scope. I hope the article clarify better the *why* and *how* this thinks works. I used Spring and *SecurityContextHolder* but this approach can be used in general when you nedd to store context information in your application in a multi-thread environment. 
