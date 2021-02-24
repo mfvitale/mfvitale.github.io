@@ -5,24 +5,61 @@ date:   2021-02-24 17:00:00 +0100
 categories: blog
 ---
 
-In the last months I met "Security context" and "concurrency" with their friends "threads" after an initial confrontation, we cleared up and now I want to share this experience with you. 
+In the last months, I met "Security context" and "concurrency" with their friends "threads" and after an initial confrontation, we cleared up and now I want to share this experience with you. 
 
 ## The problem
-I need to store authentication information and this must be accessed during all the request flow. The most used approach is to store this information inside a ThreadLocal valriable so in that case it will be avaible for the thread that serve a particular request. If you are using Spring you can use SucurityContextHolder bean.
+I needed to store authentication information that must be accessed during all the request flow. The most used approach is to store this information inside a ThreadLocal variable so in that case, it will be available for the thread that serves a particular request. 
+If you are using Spring you can use SucurityContextHolder bean.
 
-Infact, if we go into this class we can, without any surprise, saw that Spring uses a ThreadLocal variable to store our authentication information. Well we solved the problem!
+If we have a look at this class we can, without any surprise, saw that Spring uses a ThreadLocal variable to store our authentication information. Well, we solved the problem!
 
 Uhmm..are you sure?
 
 ## One step deep
-As you know 'ThreadLocal' means exactly what the name say: it's a variable local to the thread. So..what happen if I spawn others threads? Are yo starting to feel the problem?
+As you know 'ThreadLocal' means exactly what the name says: it's a variable local to the thread. So..what happens if I start other threads? Are you starting to feel the problem?
 
 ``` java
-put code from SecurityContextDefaultStrategy 
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.util.concurrent.atomic.AtomicReference;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest
+class SecurityContextDefaultStrategy {
+
+    @Test
+    void singleThreadAllWorks() {
+
+        SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken("user", "pass"));
+
+        assertThat(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).isEqualTo("user");
+    }
+
+    @Test
+    void multiThreadFail() throws InterruptedException {
+
+        SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken("user", "pass"));
+
+        AtomicReference<Object> principal = new AtomicReference<>();
+        Thread user = new Thread(() -> {
+            // do some stuff
+            principal.set(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        });
+
+        user.start();
+        user.join();
+
+        assertThat(principal.get()).isEqualTo("user");
+    }
+} 
 ```
 
-Look at the second test, we are getting the authentication context from a new Thread and this will *FAIL*. Why?
-The Spring SecurityContextHolder has different strategies to "store" context:
+Look at the second test, we are getting the authentication context from a new thread and this will *FAIL*. Why?
+To better understand I suggest to take always a look at the code. Here we can see that SecurityContextHolder class has different strategies to "store" context:
 
 * MODE_GLOBAL 
 * MODE_INHERITABLETHREADLOCAL 
@@ -43,19 +80,136 @@ We can solve the problem of missing context when creating new threads setting th
 SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
 ```
 
-this can also be done setting the property 
+this can also be done by setting the property 
 ``` properties
 spring.security.strategy=MODE_INHERITABLETHREADLOCAL
 ```
 
 Let's see the test
 ``` java
-put code from SecurityContextInheritableStrategy 
+import me.mfvitale.securitycontext.helpers.SecurityContextHelper;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.concurrent.DelegatingSecurityContextExecutor;
+import org.springframework.security.concurrent.DelegatingSecurityContextExecutorService;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest
+class SecurityContextInheritableStrategy {
+
+
+    @Test
+    void singleThreadAllWorks() {
+        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+
+        SecurityContextHolder.setContext(SecurityContextHelper.createContext("user", "pass"));
+
+        assertThat(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).isEqualTo("user");
+    }
+
+    @Test
+    void multiThreadAllWorksNow() throws InterruptedException {
+
+        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+
+        SecurityContextHolder.setContext(SecurityContextHelper.createContext("user", "pass"));
+
+        AtomicReference<Object> principal = new AtomicReference<>();
+        Thread user = new Thread(() -> {
+            // do some stuff
+            principal.set(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        });
+
+        user.start();
+        user.join();
+
+        assertThat(principal.get()).isEqualTo("user");
+    }
+
+    @Test
+    void threadPoolStillFail() throws InterruptedException {
+
+        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+
+        SecurityContextHolder.setContext(SecurityContextHelper.createContext("user1", "pass"));
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        AtomicReference<Object> principal = new AtomicReference<>();
+        print(SecurityContextHolder.getContext());
+        executor.execute(() -> {
+            // do some stuff
+            print(SecurityContextHolder.getContext());
+            principal.set(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        });
+        executor.awaitTermination(100, TimeUnit.MILLISECONDS);
+
+        assertThat(principal.get()).isEqualTo("user1");
+
+        SecurityContextHolder.setContext(SecurityContextHelper.createContext("user2", "pass"));
+        print(SecurityContextHolder.getContext());
+        executor.execute(() -> {
+            // do some stuff
+            print(SecurityContextHolder.getContext());
+            principal.set(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        });
+        executor.awaitTermination(100, TimeUnit.MILLISECONDS);
+
+        assertThat(principal.get()).isEqualTo("user2");
+    }
+
+
+    @Test
+    void threadPoolAllWorks() throws InterruptedException {
+
+        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+
+        SecurityContextHolder.setContext(SecurityContextHelper.createContext("user1", "pass"));
+
+        ExecutorService originalExecutor = Executors.newSingleThreadExecutor();
+        DelegatingSecurityContextExecutorService executor = new DelegatingSecurityContextExecutorService(originalExecutor);
+
+        AtomicReference<Object> principal = new AtomicReference<>();
+        print(SecurityContextHolder.getContext());
+        executor.execute(() -> {
+            // do some stuff
+            print(SecurityContextHolder.getContext());
+            principal.set(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        });
+        executor.awaitTermination(100, TimeUnit.MILLISECONDS);
+
+        assertThat(principal.get()).isEqualTo("user1");
+
+        SecurityContextHolder.setContext(SecurityContextHelper.createContext("user2", "pass"));
+        print(SecurityContextHolder.getContext());
+        executor.execute(() -> {
+            // do some stuff
+            print(SecurityContextHolder.getContext());
+            principal.set(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        });
+        executor.awaitTermination(100, TimeUnit.MILLISECONDS);
+
+        assertThat(principal.get()).isEqualTo("user2");
+    }
+
+    private static void print(SecurityContext securityContext) {
+        System.out.println(Thread.currentThread().getName() + "="+ securityContext.getAuthentication().getPrincipal());
+    }
+}
 ```
  
 Now the first two tests will pass but not the third one...:(
 
-Uhmm we are using InheritableThreadLocal this means that the context will be copied to new thread from the main thread but in our third tests we are using a thread pool..so a thread is created once ( in this moment the context will be inherited from the main thread) but then will be reused! You got the point?
+Uhmm...let's think about it. 
+We are using InheritableThreadLocal which means that the context will be copied to a new thread from the main thread but in our third tests we are using a thread pool..so a thread is created once (at this moment the context will be inherited from the main thread) but then will be reused! Did you get the point?
 
 We need something to copy the context before each execution. Spring has the concept of [*DelegatingSecurityContext**](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/concurrency.html) that do the work for us. 
 
@@ -68,7 +222,7 @@ We need something to copy the context before each execution. Spring has the conc
 * DelegatingSecurityContextAsyncTaskExecutor
 * DelegatingSecurityContextTaskExecutor
 
-In this case we need the *DelegatingSecurityContextExecutorService* that wraps our *ExecutorService*
+In this case, we need the *DelegatingSecurityContextExecutorService* that wraps our *ExecutorService*
 
 ``` java
 ExecutorService originalExecutor = Executors.newSingleThreadExecutor();
@@ -78,4 +232,4 @@ DelegatingSecurityContextExecutorService executor = new DelegatingSecurityContex
 Now all the tests will pass!
 
 ## Conclusion
-We have seen how to configure and use SecurityContextHolder for our scope. I hope the article clarify better the *why* and *how* this thinks works. I used Spring and *SecurityContextHolder* but this approach can be used in general when you nedd to store context information in your application in a multi-thread environment. 
+We have seen how to configure and use SecurityContextHolder for our scope. I hope the article clarify better the *why* and *how* these things work. I used Spring and *SecurityContextHolder* but this approach can be used in general when you need to store context information in your application in a multi-thread environment. 
