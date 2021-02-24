@@ -1,14 +1,19 @@
 ---
 layout: post
 title:  "Security context and concurrency"
-date:   2021-02-24 17:00:00 +0100
+date:   2021-02-24 17:00:00 +0200
 categories: blog
 ---
 
 In the last months, I met "Security context" and "concurrency" with their friends "threads" and after an initial confrontation, we cleared up and now I want to share this experience with you. 
 
+![concurrency]({{site.baseurl}}/assets/img/concurrency/concurrency.jpg?style=centerme)
+
+Comic by  [geek-and-poke](https://geek-and-poke.com/)
+
+
 ## The problem
-I needed to store authentication information that must be accessed during all the request flow. The most used approach is to store this information inside a ThreadLocal variable so in that case, it will be available for the thread that serves a particular request. 
+I needed to store authentication information that must be accessed during all the request flow. After some research I found that the most used approach is to store this information inside a ThreadLocal variable so in that case, it will be available for the thread that serves a particular request. 
 If you are using Spring you can use SucurityContextHolder bean.
 
 If we have a look at this class we can, without any surprise, saw that Spring uses a ThreadLocal variable to store our authentication information. Well, we solved the problem!
@@ -209,7 +214,7 @@ class SecurityContextInheritableStrategy {
 Now the first two tests will pass but not the third one...:(
 
 Uhmm...let's think about it. 
-We are using InheritableThreadLocal which means that the context will be copied to a new thread from the main thread but in our third tests we are using a thread pool..so a thread is created once (at this moment the context will be inherited from the main thread) but then will be reused! Did you get the point?
+We are using InheritableThreadLocal which means that the context will be copied to a new thread from the main thread but in our third test we are using a thread pool..so a thread is created once (at this moment the context will be inherited from the main thread) but then will be reused! Did you get the point?
 
 We need something to copy the context before each execution. Spring has the concept of [*DelegatingSecurityContext**](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/concurrency.html) that do the work for us. 
 
@@ -229,9 +234,9 @@ ExecutorService originalExecutor = Executors.newSingleThreadExecutor();
 DelegatingSecurityContextExecutorService executor = new DelegatingSecurityContextExecutorService(originalExecutor);
 ```
 
-Now all the tests will pass!
+Now all the tests will pass! This is because the *DelegatingSecurityContextExecutorService* will copy the context before thread execution.
 
 ## Conclusion
 We have seen how to configure and use SecurityContextHolder for our scope. I hope the article clarify better the *why* and *how* these things work. I used Spring and *SecurityContextHolder* but this approach can be used in general when you need to store context information in your application in a multi-thread environment. 
 
-Check the [repo](https://github.com/mfvitale/security-context) for full project.
+Check the [repo](https://github.com/mfvitale/security-context) for the full project.
