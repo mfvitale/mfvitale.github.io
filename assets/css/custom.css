@@ -42,3 +42,8 @@ header.p-page .nav {
 .nav .active {
     background-color: #4CAF50;
 }
+
+img[src$="centerme"] {
+    display:block;
+    margin: 0 auto;
+}
