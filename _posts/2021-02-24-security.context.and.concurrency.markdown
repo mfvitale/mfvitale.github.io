@@ -4,3 +4,20 @@ title:  "Security context and concurrency"
 date:   2021-02-24 17:00:00 +0100
 categories: blog
 ---
+
+In the last months I met "Security context" and "concurrency" with their friends "threads" after an initial confrontation, we cleared up and now I want to share this experience with you. 
+
+## The problem
+I need to store authentication information and this must be accessed during all the request flow. The most used approach is to store this information inside a ThreadLocal valriable so in that case it will be avaible for the thread that serve a particular request. If you are using Spring you can use SucurityContextHolder bean.
+
+Infact, if we go into this class we can, without any surprise, saw that Spring uses a ThreadLocal variable to store our authentication information. Well we solved the problem!
+
+Uhmm..are you sure?
+
+## One step deep
+As you know 'ThreadLocal' means exactly what the name say: it's a variable local to the thread. So..what happen if I spawn others threads? Are yo starting to feel the problem?
+
+``` java
+put code from SecurityContextDefaultStrategy 
+```
+
