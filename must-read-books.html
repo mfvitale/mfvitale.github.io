@@ -6,7 +6,7 @@ sitemap: true
 ---
 
 {% for book in site.data.book-list.books %}
-    {% assign indexModule = forloop.index | modulo: 2 %}
+    {% assign indexModule = forloop.index | modulo: 2 %} 
     {% if indexModule == 0 %}
         <div class="blog-card alt">
        {% else %}
