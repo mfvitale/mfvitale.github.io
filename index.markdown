@@ -4,3 +4,9 @@
 
 layout: home
 ---
+
+ <ul>
+        {% for item in site.data.menu.pages %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
