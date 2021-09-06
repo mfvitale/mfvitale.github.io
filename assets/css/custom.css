@@ -203,7 +203,7 @@ img[src$="centerme"] {
 	}
 	 .blog-card .meta {
 		 flex-basis: 20%;
-		 /*height: auto;*/
+		 height: auto;
 	}
 	 .blog-card .description {
 		 flex-basis: 60%;
