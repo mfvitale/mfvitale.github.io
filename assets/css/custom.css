@@ -1,3 +1,8 @@
+/* override default size */
+main {
+  max-width: 60rem;
+}
+
 img.emoji {
     margin: 0;
 }
