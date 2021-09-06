@@ -6,7 +6,8 @@ sitemap: true
 ---
 
 {% for book in site.data.book-list.books %}
-    {% if forloop.index | modulo: 2 %}
+    {% assign isEven = forloop.index | modulo: 2 == 0 %}
+    {% if isEven %}
         <div class="blog-card alt">
        {% else %}
         <div class="blog-card">
@@ -19,7 +20,7 @@ sitemap: true
               <h2>{{ book.subtitle }}</h2>
               <p> {{ book.description }}</p>
               <p class="read-more">
-                <a href="{{ book.url }}">Buy</a>
+                <a href="{{ book.link }}">Buy</a>
               </p>
             </div>
         </div>
