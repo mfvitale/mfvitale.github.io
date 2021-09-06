@@ -81,7 +81,7 @@ img[src$="centerme"] {
 	 transform: scale(1.3) rotate(3deg);
 }
  
-{
+.blog-card .meta {
 	 margin: 0;
 	 position: relative;
 	 z-index: 0;
@@ -203,7 +203,7 @@ img[src$="centerme"] {
 	}
 	 .blog-card .meta {
 		 flex-basis: 20%;
-		 height: auto;
+		 /*height: auto;*7
 	}
 	 .blog-card .description {
 		 flex-basis: 60%;
