@@ -6,8 +6,7 @@ sitemap: true
 ---
 
 <ul>
-        {% for item in site.data.menu.pages %}
-            <li><a href="{{ item.link }}">{{ item.name }}</a></li>
-        {% endfor %}
-      </ul>
-
+{% for book in site.data.book-list.books %}
+    <li><a href="{{ book.url }}">{{ book.title }}</a></li>
+{% endfor %}
+</ul>
