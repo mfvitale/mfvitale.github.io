@@ -6,7 +6,7 @@ layout: home
 ---
 
  <ul>
-        {% for item in site.data.menu.pages %}
-            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% for book in site.data.book-list.books %}
+            <li><a href="{{ book.url }}">{{ book.title }}</a></li>
         {% endfor %}
       </ul>
