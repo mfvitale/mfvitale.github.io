@@ -9,7 +9,7 @@ sitemap: true
     {% if forloop.index | modulo: 2 %}
         <div class="blog-card alt">
        {% else %}
-        <div class="blog-card alt">
+        <div class="blog-card">
     {% endif %}
             <div class="meta">
               <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
@@ -22,7 +22,5 @@ sitemap: true
                 <a href="{{ book.url }}">Buy</a>
               </p>
             </div>
-          </div>
-    </div>
+        </div>
 {% endfor %}
-</ul>
