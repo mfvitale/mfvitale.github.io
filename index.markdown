@@ -4,9 +4,3 @@
 
 layout: home
 ---
-
- <ul>
-        {% for book in site.data.book-list.books %}
-            <li><a href="{{ book.url }}">{{ book.title }}</a></li>
-        {% endfor %}
-      </ul>
