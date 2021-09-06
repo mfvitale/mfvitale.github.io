@@ -2,6 +2,7 @@ pages:
 
 - title: Home
   url: /
-
 - title: About
   url: /about
+- title: Must Read Books
+  url: /must-read-books
