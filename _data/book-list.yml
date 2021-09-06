@@ -2,12 +2,16 @@ books:
 - title: "The Pragmatic Programmer: Your Journey to Mastery, 20th Anniversary Edition"
   description: 
   link: https://amzn.to/3yNIPWT
+  image: https://images-eu.ssl-images-amazon.com/images/I/51cUVaBWZzL._SX198_BO1,204,203,200_QL40_ML2_.jpg
 - title: "Clean Code: A Handbook of Agile Software Craftsmanship"
   description: 
   link: https://amzn.to/3BK5MMv
+  image: https://images-na.ssl-images-amazon.com/images/I/41yafGMO+rL._SX376_BO1,204,203,200_.jpg
 - title: "No Rules Rules: Netflix and the Culture of Reinvention"
   description: 
   link: https://amzn.to/3tnb4KP
+  image: https://images-na.ssl-images-amazon.com/images/I/41zc2D5wb0L._SX327_BO1,204,203,200_.jpg
 - title: "The Software Craftsman: Professionalism, Pragmatism, Pride"
   description: 
   link: https://amzn.to/3zOFeJB
+  image: https://images-na.ssl-images-amazon.com/images/I/51dvkme2rWL._SX380_BO1,204,203,200_.jpg
