@@ -1,17 +1,21 @@
 books:
 - title: "The Pragmatic Programmer: Your Journey to Mastery, 20th Anniversary Edition"
-  description: 
+  description: "I read the first edition. This book changed my point of view on software developement, started switching me from a simple worker to a professional one." 
   link: https://amzn.to/3yNIPWT
   image: https://images-eu.ssl-images-amazon.com/images/I/51cUVaBWZzL._SX198_BO1,204,203,200_QL40_ML2_.jpg
 - title: "Clean Code: A Handbook of Agile Software Craftsmanship"
-  description: 
+  description: "A very must have! A lot of concept there will be always useful for your career!" 
   link: https://amzn.to/3BK5MMv
   image: https://images-na.ssl-images-amazon.com/images/I/41yafGMO+rL._SX376_BO1,204,203,200_.jpg
 - title: "No Rules Rules: Netflix and the Culture of Reinvention"
-  description: 
+  description: "Thinking different can be possible and will make the difference, but is not for everyone. I can summarize this book with this sentence."
   link: https://amzn.to/3tnb4KP
   image: https://images-na.ssl-images-amazon.com/images/I/41zc2D5wb0L._SX327_BO1,204,203,200_.jpg
 - title: "The Software Craftsman: Professionalism, Pragmatism, Pride"
-  description: 
+  description: "This is the next step. It helps you to advance from a professional worker to a Software Craftman. I really believe that our work is a craft."
   link: https://amzn.to/3zOFeJB
   image: https://images-na.ssl-images-amazon.com/images/I/51dvkme2rWL._SX380_BO1,204,203,200_.jpg
+- title: "Phoenix Project: A Novel About It, Devops, And Helping Your Business Win"
+  description: "This is the novel that all of us, al least one time in our carrer, have experinced. If you are interested also to the processes involved in our work. Read it!"
+  link: https://amzn.to/3hc8UJi
+  image: https://images-na.ssl-images-amazon.com/images/I/51AZgK+xuOL._SX345_BO1,204,203,200_.jpg
