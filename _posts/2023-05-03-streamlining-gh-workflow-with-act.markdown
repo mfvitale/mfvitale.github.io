@@ -8,7 +8,7 @@ categories: blog
 Continuous Integration (CI) and Continuous Delivery/Deployment (CD) are essential components of modern software development workflows. They allow developers to build, test, and deploy their applications automatically and quickly, which results in faster feedback cycles, higher quality code, and fewer bugs.
 
 <p align="center">
-<img src="{{site.baseurl}}/assets/img/gh-workflow/determinism.png" height="30%">
+<img src="{{site.baseurl}}/assets/img/gh-workflow/determinism.png" width="50%">
 </p>
 
 Comic by  [geek-and-poke](https://geek-and-poke.com/)
