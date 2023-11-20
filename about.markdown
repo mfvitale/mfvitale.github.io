@@ -5,7 +5,7 @@ permalink: /about/
 sitemap: true
 ---
 
-Hello! I'm Mario, a software engineer with 8 years of experience.
+Hello! I'm Mario, a software engineer with {{ site.time | date: '%Y' | minus:2013 }} years of experience.
 
 I have worked for consultancy, startup, and enterprise product companies in different sectors. 
 I am mainly a back-end developer but I had some experience working on the frot-end. 
