@@ -14,8 +14,8 @@ sitemap: true
 {% for talk in site.data.talk-list.talks %}
    <li class="talk">
       <span> <div class="talk-place">{{ talk.place }}</div>: <div class="talk-title">{{ talk.title }}</div> 
-        <a href="{{ talk.slides }}"><i class="fa fa-file-pdf"></i></a>
-        <a href="{{ book.video }}"><i class="fab fa-youtube"></i></a></p>
+        <a href="{{ talk.slides }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i></a>
+        <a href="{{ talk.video }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a></p>
    </li>
 {% endfor %}
 </ul>
