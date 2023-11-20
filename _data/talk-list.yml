@@ -1,0 +1,7 @@
+talks:
+- title: "Dealing with Data Consistency - a CDC approach to dual write"
+  abstract: "Are data consistencies keeping you up at night?
+We will explore how Change Data Capture (CDC) can be used to synchronize data across multiple systems without compromising integrity. The spotlight of this tech talk will be on Debezium, an open-source CDC platform that excels in capturing and delivering database changes across various systems. We will see how it can be used to enable seamless dual writes, ensuring data consistency across multiple data stores without compromising performances." 
+  place: Ticino Software Craft (Online)
+  slides: https://bit.ly/47AKssG
+  video: https://bit.ly/49Hgk0F

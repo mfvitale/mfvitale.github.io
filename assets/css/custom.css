@@ -53,6 +53,17 @@ img[src$="centerme"] {
     margin: 0 auto;
 }
 
+.talk-title {
+    display: inline;
+    margin: 0 1em 0 0;
+	font-style: italic;
+}
+
+.talk-place {
+    display: inline;
+	font-weight: bold;
+}
+
 /* book list */
 * {
 	 box-sizing: border-box;

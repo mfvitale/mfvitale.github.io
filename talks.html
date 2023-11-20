@@ -1,0 +1,21 @@
+---
+layout: page
+title: Talks
+permalink: /talks/
+sitemap: true
+---
+
+<!-- https://codepen.io/ChynoDeluxe/pen/bdXeqQ/ -->
+<p>
+    This is a list of talks I have done.  
+</p>
+
+<ul class="talks">
+{% for talk in site.data.talk-list.talks %}
+   <li class="talk">
+      <span> <div class="talk-place">{{ talk.place }}</div>: <div class="talk-title">{{ talk.title }}</div> 
+        <a href="{{ talk.slides }}"><i class="fa fa-file-pdf"></i></a>
+        <a href="{{ book.video }}"><i class="fab fa-youtube"></i></a></p>
+   </li>
+{% endfor %}
+</ul>
