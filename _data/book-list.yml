@@ -16,6 +16,15 @@ books:
   link: https://amzn.to/3zOFeJB
   image: https://images-na.ssl-images-amazon.com/images/I/51dvkme2rWL._SX380_BO1,204,203,200_.jpg
 - title: "Phoenix Project: A Novel About It, Devops, And Helping Your Business Win"
-  description: "This is the novel that all of us, al least one time in our carrer, have experinced. If you are interested also to the processes involved in our work. Read it!"
+  description: "This is the novel that all of us, al least one time in our career, have experinced. If you are interested also to the processes involved in our work. Read it!"
   link: https://amzn.to/3hc8UJi
   image: https://images-na.ssl-images-amazon.com/images/I/51AZgK+xuOL._SX345_BO1,204,203,200_.jpg
+- title: "System Design Interview"
+  description: "An absolute must. It will help not only for your interview but also to understand very common degisn problems. I suggest to follow author's newsletter https://blog.bytebytego.com/"
+  link: https://amzn.to/47Fz6Up
+  image: https://m.media-amazon.com/images/I/51dicdpovNL._SL1500_.jpg
+- title: "Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"
+  description: "I really enjoyed it! Algorithms are well exaplained with meaningful illustrations. Useful to refresh your mind about most used algorithms."
+  link: https://amzn.to/46nBrSV
+  image: https://m.media-amazon.com/images/I/81HwgKQ39lS._SL1500_.jpg
+
