@@ -13,3 +13,9 @@ We will explore how Change Data Capture (CDC) can be used to synchronize data ac
   place: Open Source Day 2024 · Florence
   slides: https://bit.ly/47AKssG
   video: https://bit.ly/4jNKsMH
+- date: 16 Jul 2025
+  title: "Native Data Lineage in Debezium with OpenLineage"
+  abstract: "" 
+  place: OpenLineage TSC meeting · Online
+  slides: https://docs.google.com/presentation/d/1ZlUE_EFNg2zCFBKyBeTm17aeJmzkvtL_D3sg08IBZHc/edit?slide=id.p1#slide=id.p1
+  video: https://youtu.be/cea3k9ohTyk
