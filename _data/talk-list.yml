@@ -1,11 +1,10 @@
 talks:
-- date: 17 Nov 2023
-  title: "Dealing with Data Consistency - a CDC approach to dual write"
-  abstract: "Are data consistencies keeping you up at night?
-We will explore how Change Data Capture (CDC) can be used to synchronize data across multiple systems without compromising integrity. The spotlight of this tech talk will be on Debezium, an open-source CDC platform that excels in capturing and delivering database changes across various systems. We will see how it can be used to enable seamless dual writes, ensuring data consistency across multiple data stores without compromising performances." 
-  place: Ticino Software Craft (Online)
-  slides: https://bit.ly/47AKssG
-  video: https://bit.ly/49Hgk0F
+- date: 16 Jul 2025
+  title: "Native Data Lineage in Debezium with OpenLineage"
+  abstract: "" 
+  place: OpenLineage TSC meeting · Online
+  slides: https://docs.google.com/presentation/d/1ZlUE_EFNg2zCFBKyBeTm17aeJmzkvtL_D3sg08IBZHc/edit?slide=id.p1#slide=id.p1
+  video: https://youtu.be/cea3k9ohTyk
 - date: 07 Mar 2024
   title: "Dealing with Data Consistency - a CDC approach to dual write"
   abstract: "Are data consistencies keeping you up at night?
@@ -13,9 +12,12 @@ We will explore how Change Data Capture (CDC) can be used to synchronize data ac
   place: Open Source Day 2024 · Florence
   slides: https://bit.ly/47AKssG
   video: https://bit.ly/4jNKsMH
-- date: 16 Jul 2025
-  title: "Native Data Lineage in Debezium with OpenLineage"
-  abstract: "" 
-  place: OpenLineage TSC meeting · Online
-  slides: https://docs.google.com/presentation/d/1ZlUE_EFNg2zCFBKyBeTm17aeJmzkvtL_D3sg08IBZHc/edit?slide=id.p1#slide=id.p1
-  video: https://youtu.be/cea3k9ohTyk
+- date: 17 Nov 2023
+  title: "Dealing with Data Consistency - a CDC approach to dual write"
+  abstract: "Are data consistencies keeping you up at night?
+We will explore how Change Data Capture (CDC) can be used to synchronize data across multiple systems without compromising integrity. The spotlight of this tech talk will be on Debezium, an open-source CDC platform that excels in capturing and delivering database changes across various systems. We will see how it can be used to enable seamless dual writes, ensuring data consistency across multiple data stores without compromising performances." 
+  place: Ticino Software Craft (Online)
+  slides: https://bit.ly/47AKssG
+  video: https://bit.ly/49Hgk0F
+
+
