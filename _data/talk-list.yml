@@ -1,4 +1,10 @@
 talks:
+- date: 27 Nov 2025
+  title: "Data pipeline troubleshooting - Root cause analysis with lineage metadata"
+  abstract: "Remember when debugging streaming data pipelines felt like playing detective at a crime scene, where the evidence kept shifting? Well, grab your magnifying glass because we’re about to turn you into Sherlock Holmes of the streaming world. We’ll simulate a disruptive change in an order processing pipeline that captures database changes with Debezium, processes them through Apache Flink, and tracks lineage metadata with OpenLineage and Marquez." 
+  place: Milano Apache Kafka® Meetup by Confluent · Online
+  slides: https://bit.ly/4rvKD3j
+  video: https://forum.confluent.io/t/data-pipeline-troubleshooting-root-cause-analysis-with-lineage-metadata/38192
 - date: 16 Jul 2025
   title: "Native Data Lineage in Debezium with OpenLineage"
   abstract: "" 
@@ -7,15 +13,13 @@ talks:
   video: https://youtu.be/cea3k9ohTyk
 - date: 07 Mar 2024
   title: "Dealing with Data Consistency - a CDC approach to dual write"
-  abstract: "Are data consistencies keeping you up at night?
-We will explore how Change Data Capture (CDC) can be used to synchronize data across multiple systems without compromising integrity. The spotlight of this tech talk will be on Debezium, an open-source CDC platform that excels in capturing and delivering database changes across various systems. We will see how it can be used to enable seamless dual writes, ensuring data consistency across multiple data stores without compromising performances." 
+  abstract: "Are data consistencies keeping you up at night? We will explore how Change Data Capture (CDC) can be used to synchronize data across multiple systems without compromising integrity. The spotlight of this tech talk will be on Debezium, an open-source CDC platform that excels in capturing and delivering database changes across various systems. We will see how it can be used to enable seamless dual writes, ensuring data consistency across multiple data stores without compromising performances." 
   place: Open Source Day 2024 · Florence
   slides: https://bit.ly/47AKssG
   video: https://bit.ly/4jNKsMH
 - date: 17 Nov 2023
   title: "Dealing with Data Consistency - a CDC approach to dual write"
-  abstract: "Are data consistencies keeping you up at night?
-We will explore how Change Data Capture (CDC) can be used to synchronize data across multiple systems without compromising integrity. The spotlight of this tech talk will be on Debezium, an open-source CDC platform that excels in capturing and delivering database changes across various systems. We will see how it can be used to enable seamless dual writes, ensuring data consistency across multiple data stores without compromising performances." 
+  abstract: "Are data consistencies keeping you up at night? We will explore how Change Data Capture (CDC) can be used to synchronize data across multiple systems without compromising integrity. The spotlight of this tech talk will be on Debezium, an open-source CDC platform that excels in capturing and delivering database changes across various systems. We will see how it can be used to enable seamless dual writes, ensuring data consistency across multiple data stores without compromising performances." 
   place: Ticino Software Craft (Online)
   slides: https://bit.ly/47AKssG
   video: https://bit.ly/49Hgk0F
