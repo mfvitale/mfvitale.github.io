@@ -19,10 +19,9 @@ That was, and still is, my passion. I was assigned small tasks, and my only goal
 
 Over time, things changed. I began to understand the business, question whether a task was truly valuable, and think more about security, architecture, and long-term impact.
 
-Today, after 13 years, I can say that my job is no longer just writing code. I mostly solve problems; code is simply the final step. A tool, like the keyboard I use to type.
+Today, after 13 years, I can say that my job is no longer just writing code. I mostly solve problems; code is simply the final step, a tool, like the keyboard I use to type.
 
 The real goal is building things.
-
 This was true before AI, and it remains true today.
 
 AI is becoming extremely good at writing code because it has been trained on enormous amounts of it. But being able to automate one part of the job does not mean the entire role is replaceable.
@@ -30,17 +29,16 @@ AI is becoming extremely good at writing code because it has been trained on eno
 What worries me most are those entering the profession now: junior engineers.
 
 As a junior, you naturally focus on writing code, and that’s exactly how you learn. Yet many companies are reducing junior hiring, replacing these roles with AI tools.
-
 This creates a serious long-term problem. If we stop hiring juniors, we stop producing seniors.
-
 This is short-term optimization at the expense of future capability.  
+
 That said, according to a recent article by [Gergely Orosz](https://newsletter.pragmaticengineer.com/i/178001705/2-junior-engineer-hiring-to-rebound), this trend may already be starting to reverse.
 
 Some argue that AI will eventually replace senior engineers as well. That may be possible, but not anytime soon.
 
 Training AI to write code was the easy part. Teaching it to build systems creatively, balance constraints, and make context-aware trade-offs is far harder.
 
-AI is here to stay, and our work has already changed.
+But..AI is here to stay, and our work has already changed.
 
 We moved from punched cards to assembly, then to high-level languages and powerful abstractions. Today, we use sophisticated editors that help us refactor, navigate, and automate repetitive tasks.
 
@@ -53,36 +51,33 @@ Have you ever wanted to improve a project that worked but could work better, yet
 This is where AI fits perfectly.
 
 Have you ever had to work on a boring but necessary task?  
-Another good job for AI.  
-I recently used it to migrate a Debezium codebase from JUnit 4 to JUnit 5, which I described in [this article](https://debezium.io/blog/2026/01/07/llms-in-the-loop-large-junit-migration/).
+Another good job for AI. 
 
-By offloading this work, we gain time for what truly matters: solving difficult and intricate problems.
+I recently used it to [migrate the Debezium codebase from JUnit 4 to JUnit 5](https://debezium.io/blog/2026/01/07/llms-in-the-loop-large-junit-migration/), with very good results.
 
-I also use AI to validate ideas, designs, and architectural decisions. I like being challenged and checking whether something can be improved.
+By offloading the boring work, we gain time for what truly matters: solving difficult and intricate problems.
 
-AI is especially useful for understanding large codebases. Humans quickly lose context after jumping across files. AI excels at this, as described in  
-[The RAG Obituary: Killed by Agents, Buried by Context Windows – Nicolas Bustamante](https://x.com/nicbstme/status/2016251900249964865?s=46).  
-I often use it to validate my own understanding.
+Validating ideas, designs, and architectural decisions is another way I use AI. I like being challenged and checking whether something can be improved.
 
-That said, AI tends, at least in my experience, to focus on producing a solution quickly, often missing broader context, even when it has it.  
-It usually picks the first viable solution without considering long-term implications.
+AI can help with understanding and navigating large codebases. Humans quickly lose context after jumping across files, while AI excels at this, as described in  
+[The RAG Obituary: Killed by Agents, Buried by Context Windows – Nicolas Bustamante](https://x.com/nicbstme/status/2016251900249964865?s=46). 
+I often use it to validate my own understanding as well.
 
-This is why it needs guidance from someone with the right technical skills. 
+That said, AI tends, at least in my experience, to focus on producing a solution quickly, often missing broader context, even when it has it.  It usually picks the first viable solution without considering long-term implications.
 
-There is also a deeper point here: to use AI well, you need to know what you are doing.
+This is why AI needs guidance from someone with the right technical skills: using it well requires knowing what you are doing.
 
 Giving good instructions, spotting wrong assumptions, and judging whether a solution makes sense all require real understanding of the problem and the domain. In a way, using AI effectively is similar to teaching: if you don’t truly understand the subject, the teaching will be shallow, and the result will be poor.
 
-This is another reason why strong fundamentals still matter. AI can accelerate your work, but it cannot replace the understanding needed to steer it in the right direction.
+AI can accelerate your work, but it cannot replace the understanding needed to steer it in the right direction.
 
 I did an experiment: I asked Claude Code to create a TUI for Kafka Connect with the possibility to view connectors, edit, pause, resume, etc.
 
-I asked it to create a detailed plan and also propose a team with the needed roles.  
-It proposed an architecture in Go using Bubble Tea (a TUI framework). There was nothing in Java (the language I know better), and the team was composed of four roles: team leader, backend developer, frontend developer, and QA.
+I asked it to create a detailed plan and also propose a team with the needed roles.  It proposed an architecture in Go using Bubble Tea (a TUI framework). There was nothing in Java (the language I know better), and the team was composed of four roles: team leader, backend developer, frontend developer, and QA.
 
-I accepted this setup and asked to create a team using agents. I did it, and each agent started working separately on different parts of the project. The team leader started setting up the infrastructure, the QA started with the test setup, and so on.
+I accepted this setup and asked to create a team using agents. Each agent started working separately on different parts of the project. The team leader started setting up the infrastructure, the QA started with the test setup, and so on.
 
-After about an hour or less, the project was ready and working. There were bugs, missing features, and rough edges, but it was running.
+After about an hour, the project was ready and working. There were bugs, missing features, and rough edges, but it was running.
 
 The problem? I would never put my name on this and release it.
 
@@ -100,13 +95,13 @@ I was surprised to see Anthropic, one of the major AI companies, raising the sam
 
 I also discovered that [Claude Code offers different output styles](https://code.claude.com/docs/en/output-styles#how-output-styles-work):
 
-* Default: designed to help you complete software engineering tasks efficiently.
-* Explanatory: Provides educational “Insights” in between helping you complete software engineering tasks. Helps you understand implementation choices and codebase patterns.
-* Learning: Collaborative, learn-by-doing mode where Claude will not only share “Insights” while coding, but also ask you to contribute small, strategic pieces of code yourself. Claude Code will add TODO(human) markers in your code for you to implement.
+- **Default**: designed to help you complete software engineering tasks efficiently.  
+- **Explanatory**: provides educational “Insights” while helping you complete tasks, to better understand implementation choices and codebase patterns.  
+- **Learning**: collaborative, learn-by-doing mode where Claude will not only share “Insights” while coding, but also ask you to contribute small, strategic pieces of code yourself. Claude Code will add `TODO(human)` markers in your code for you to implement.
 
 I haven’t experimented with these modes yet, but I’m curious to try them.
 
-So, in the short term, I think we should really take care of our skills and avoid offloading too much to AI.
+So, in the short term, I think we should really take care of our skills and avoid offloading too much to AI.  
 In the long term, writing code may become less central, with skills shifting more toward higher-level abstractions.
 
 ## Supervision and future code quality
