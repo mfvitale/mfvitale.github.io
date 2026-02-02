@@ -1,0 +1,130 @@
+---
+layout: post
+title: "Have You Ever Been Paid Just to Write Code?"
+date: 2026-01-03 09:00:00 +0100
+categories: blog
+---
+
+Have you ever written only code?
+
+If you are a mid or senior software engineer, the answer is probably: *yes, but only during the first 3–4 years of your career*.
+
+Artificial Intelligence, especially Generative AI, is eating the world, and software engineers are at the sharp end of this change.  
+Unsurprisingly, we are the first to ask ourselves whether we will be replaced or not.
+
+I don’t have a definitive answer. Maybe just a hope. But let me share my perspective.
+
+In the early years of my career, I was eager to learn new technologies and write as much code as possible.  
+That was, and still is, my passion. I was assigned small tasks, and my only goal was to start coding and finish them.
+
+Over time, things changed. I began to understand the business, question whether a task was truly valuable, and think more about security, architecture, and long-term impact.
+
+Today, after 13 years, I can say that my job is no longer just writing code. I mostly solve problems; code is simply the final step. A tool, like the keyboard I use to type.
+
+The real goal is building things.
+
+This was true before AI, and it remains true today.
+
+AI is becoming extremely good at writing code because it has been trained on enormous amounts of it. But being able to automate one part of the job does not mean the entire role is replaceable.
+
+What worries me most are those entering the profession now: junior engineers.
+
+As a junior, you naturally focus on writing code, and that’s exactly how you learn. Yet many companies are reducing junior hiring, replacing these roles with AI tools.
+
+This creates a serious long-term problem. If we stop hiring juniors, we stop producing seniors.
+
+This is short-term optimization at the expense of future capability.  
+That said, according to a recent article by [Gergely Orosz](https://newsletter.pragmaticengineer.com/i/178001705/2-junior-engineer-hiring-to-rebound), this trend may already be starting to reverse.
+
+Some argue that AI will eventually replace senior engineers as well. That may be possible, but not anytime soon.
+
+Training AI to write code was the easy part. Teaching it to build systems creatively, balance constraints, and make context-aware trade-offs is far harder.
+
+AI is here to stay, and our work has already changed.
+
+We moved from punched cards to assembly, then to high-level languages and powerful abstractions. Today, we use sophisticated editors that help us refactor, navigate, and automate repetitive tasks.
+
+AI is simply the next step in this evolution.
+
+At first, I was skeptical. The results didn’t impress me. But that has changed. Today, I feel empowered by AI, and I think this is the right mindset.
+
+Have you ever wanted to improve a project that worked but could work better, yet never did because you lacked time or the perceived value was too low?
+
+This is where AI fits perfectly.
+
+Have you ever had to work on a boring but necessary task?  
+Another good job for AI.  
+I recently used it to migrate a Debezium codebase from JUnit 4 to JUnit 5, which I described in [this article](https://debezium.io/blog/2026/01/07/llms-in-the-loop-large-junit-migration/).
+
+By offloading this work, we gain time for what truly matters: solving difficult and intricate problems.
+
+I also use AI to validate ideas, designs, and architectural decisions. I like being challenged and checking whether something can be improved.
+
+AI is especially useful for understanding large codebases. Humans quickly lose context after jumping across files. AI excels at this, as described in  
+[The RAG Obituary: Killed by Agents, Buried by Context Windows – Nicolas Bustamante](https://x.com/nicbstme/status/2016251900249964865?s=46).  
+I often use it to validate my own understanding.
+
+That said, AI tends, at least in my experience, to focus on producing a solution quickly, often missing broader context, even when it has it.  
+It usually picks the first viable solution without considering long-term implications.
+
+This is why it needs guidance from someone with the right technical skills. 
+
+There is also a deeper point here: to use AI well, you need to know what you are doing.
+
+Giving good instructions, spotting wrong assumptions, and judging whether a solution makes sense all require real understanding of the problem and the domain. In a way, using AI effectively is similar to teaching: if you don’t truly understand the subject, the teaching will be shallow, and the result will be poor.
+
+This is another reason why strong fundamentals still matter. AI can accelerate your work, but it cannot replace the understanding needed to steer it in the right direction.
+
+I did an experiment: I asked Claude Code to create a TUI for Kafka Connect with the possibility to view connectors, edit, pause, resume, etc.
+
+I asked it to create a detailed plan and also propose a team with the needed roles.  
+It proposed an architecture in Go using Bubble Tea (a TUI framework). There was nothing in Java (the language I know better), and the team was composed of four roles: team leader, backend developer, frontend developer, and QA.
+
+I accepted this setup and asked to create a team using agents. I did it, and each agent started working separately on different parts of the project. The team leader started setting up the infrastructure, the QA started with the test setup, and so on.
+
+After about an hour or less, the project was ready and working. There were bugs, missing features, and rough edges, but it was running.
+
+The problem? I would never put my name on this and release it.
+
+I was not familiar with the language, the framework, and the ecosystem. I didn’t deeply review the code because, even if I have some personal experience with Go, I don’t have enough professional experience to really judge the quality of what it produced.
+
+So I didn’t feel comfortable taking ownership of it in an imaginary business scenario. It felt similar to having to change code without having tests that give you confidence.
+
+## Skill atrophy
+
+Programming requires consistent, hands-on practice to reach mastery. The increasing use of AI for writing code raises an important question: are we risking skill atrophy?
+
+For now, I believe we should keep practicing and let AI handle the boring parts that don’t contribute much to our growth.
+
+I was surprised to see Anthropic, one of the major AI companies, raising the same concern and even [onducting dedicated research on the topic](https://www.anthropic.com/research/AI-assistance-coding-skills).
+
+I also discovered that [Claude Code offers different output styles](https://code.claude.com/docs/en/output-styles#how-output-styles-work):
+
+* Default: designed to help you complete software engineering tasks efficiently.
+* Explanatory: Provides educational “Insights” in between helping you complete software engineering tasks. Helps you understand implementation choices and codebase patterns.
+* Learning: Collaborative, learn-by-doing mode where Claude will not only share “Insights” while coding, but also ask you to contribute small, strategic pieces of code yourself. Claude Code will add TODO(human) markers in your code for you to implement.
+
+I haven’t experimented with these modes yet, but I’m curious to try them.
+
+So, in the short term, I think we should really take care of our skills and avoid offloading too much to AI.
+In the long term, writing code may become less central, with skills shifting more toward higher-level abstractions.
+
+## Supervision and future code quality
+
+Today’s AI models are trained on large amounts of existing code, much of it mediocre.
+
+If most future code is generated by AI, we must be careful now. We need to review AI-generated code rigorously and hold it to high standards.
+
+The code we produce today will train the models of tomorrow. Lower the bar now, and we lower it for the future.
+
+## Conclusion
+
+The world has already changed, and refusing this change is no longer an option.
+
+I chose this job because I like building things and solving problems with technology. AI doesn’t change that; it amplifies it.
+
+As [antirez](https://antirez.com/news/158) puts it, we should avoid both blind enthusiasm and blind rejection.
+
+Used well, AI can help us build better systems and grow as professionals.
+
+More importantly, it can help push humanity forward as a whole.
