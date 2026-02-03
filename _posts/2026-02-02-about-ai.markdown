@@ -14,6 +14,8 @@ Unsurprisingly, we are the first to ask ourselves whether we will be replaced or
 
 I don’t have a definitive answer. Maybe just a hope. But let me share my perspective.
 
+## My thoughts on AI
+
 In the early years of my career, I was eager to learn new technologies and write as much code as possible.  
 That was, and still is, my passion. I was assigned small tasks, and my only goal was to start coding and finish them.
 
@@ -26,19 +28,22 @@ This was true before AI, and it remains true today.
 
 AI is becoming extremely good at writing code because it has been trained on enormous amounts of it. But being able to automate one part of the job does not mean the entire role is replaceable.
 
+## The junior dilemma
+
 What worries me most are those entering the profession now: junior engineers.
 
 As a junior, you naturally focus on writing code, and that’s exactly how you learn. Yet many companies are reducing junior hiring, replacing these roles with AI tools.
-This creates a serious long-term problem. If we stop hiring juniors, we stop producing seniors.
-This is short-term optimization at the expense of future capability.  
+This creates a serious long-term problem. If we stop hiring juniors, we stop producing seniors. This is short-term optimization at the expense of future capability.  
 
-That said, according to a recent article by [Gergely Orosz](https://newsletter.pragmaticengineer.com/i/178001705/2-junior-engineer-hiring-to-rebound), this trend may already be starting to reverse.
+I'm happy to see that something in this regards seems changing, according to a recent article by [Gergely Orosz](https://newsletter.pragmaticengineer.com/i/178001705/2-junior-engineer-hiring-to-rebound).
 
 Some argue that AI will eventually replace senior engineers as well. That may be possible, but not anytime soon.
 
 Training AI to write code was the easy part. Teaching it to build systems creatively, balance constraints, and make context-aware trade-offs is far harder.
 
 But..AI is here to stay, and our work has already changed.
+
+## Software engineer evolution
 
 We moved from punched cards to assembly, then to high-level languages and powerful abstractions. Today, we use sophisticated editors that help us refactor, navigate, and automate repetitive tasks.
 
@@ -93,7 +98,7 @@ For now, I believe we should keep practicing and let AI handle the boring parts 
 
 I was surprised to see Anthropic, one of the major AI companies, raising the same concern and even [conducting dedicated research on the topic](https://www.anthropic.com/research/AI-assistance-coding-skills).
 
-I also discovered that [Claude Code offers different output styles](https://code.claude.com/docs/en/output-styles#how-output-styles-work):
+While reading this research, I also discovered that [Claude Code offers different output styles](https://code.claude.com/docs/en/output-styles#how-output-styles-work):
 
 - **Default**: designed to help you complete software engineering tasks efficiently.  
 - **Explanatory**: provides educational “Insights” while helping you complete tasks, to better understand implementation choices and codebase patterns.  
