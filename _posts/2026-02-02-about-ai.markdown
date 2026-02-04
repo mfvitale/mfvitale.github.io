@@ -9,8 +9,7 @@ Have you ever written only code?
 
 If you are a mid or senior software engineer, the answer is probably: *yes, but only during the first 3–4 years of your career*.
 
-Artificial Intelligence, especially Generative AI, is eating the world, and software engineers are at the sharp end of this change.  
-Unsurprisingly, we are the first to ask ourselves whether we will be replaced or not.
+Artificial Intelligence, especially Generative AI, is eating the world, and software engineers are at the sharp end of this change. Unsurprisingly, we are the first to ask ourselves whether we will be replaced or not.
 
 I don’t have a definitive answer. Maybe just a hope. But let me share my perspective.
 
