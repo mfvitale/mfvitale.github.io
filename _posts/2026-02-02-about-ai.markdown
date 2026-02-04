@@ -14,7 +14,7 @@ Unsurprisingly, we are the first to ask ourselves whether we will be replaced or
 
 I don’t have a definitive answer. Maybe just a hope. But let me share my perspective.
 
-## My thoughts on AI
+## From writing code to solving problems
 
 In the early years of my career, I was eager to learn new technologies and write as much code as possible.  
 That was, and still is, my passion. I was assigned small tasks, and my only goal was to start coding and finish them.
