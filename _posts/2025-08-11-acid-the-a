@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "ACID Under the hood: How Atomicity Actually Works"
+date:  2025-08-11 11:00:00 +0100
+categories: blog
+---
+
+I still remember the first time I heard about ACID. 
+I was in my last high school year when I first started to study databases. 
+The second time was during the Database courses at university.
+
+In both times, ACID was a key part of the lessons, but it was always treated from the Database user's view and never from the database's point of view itself.
+In recent years, as a maintainer of Debezium, I'm more involved in database internals, 
+I would like to write blank on white what I'm learning, hoping that it could be something useful not only for me. 
+
+This is the reason behind this series of four articles focusing on how ACID is achieved in the databases. 
+
+We will start with the "A" - Atomicity. 
